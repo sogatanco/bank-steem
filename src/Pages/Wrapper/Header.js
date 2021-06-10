@@ -10,7 +10,7 @@ class Header extends React.Component{
               <Navbar.Brand href="#home">BANK STEEM</Navbar.Brand>
               <Navbar.Toggle aria-controls="responsive-navbar-nav" />
               <Navbar.Collapse id="responsive-navbar-nav">
-                <Nav className="mr-auto">
+                <Nav className="nv mr-auto">
                   <Nav.Link href="#features" className="mx-3">Home</Nav.Link>
                   <Nav.Link href="#pricing" className="mx-3">Transaction History</Nav.Link>
                   <Nav.Link href="#pricing" className="mx-3">About</Nav.Link>
