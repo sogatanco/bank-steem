@@ -11,30 +11,29 @@ class Home extends React.Component{
     constructor(){
         super();
         this.state={
-            from:['IDR'],
-            to:['STEEM', 'SBD']
+            fromlist:['IDR'],
+            from:'IDR',
+            to:'STEEM',
+            tolist:['STEEM', 'SBD']
         }
       }
 
     render(){
-        this.state.to.map((d)=>{
-            console.log(d)
-        })
         return(
             <div>
                  <Header/>
+                 
                  <Container className="ml">
                      <Row className="mt-4 ">
                          <Col  className=" pl-4 pr-4 tr" md={5}>
 
                             <InputGroup className="mb-2">
-                                <Form.Control id="inlineFormInputGroup" placeholder="Amount" />
+                                <Form.Control id="iw" placeholder="Amount" />
                                 <InputGroup.Prepend>
-                                    <Form.Control as="select" >
-                                    <option value="">Silakan Pilih</option>
-                                        {this.state.to.map=((fr)=>{
-                                             <option key={fr} value={fr}>{fr}</option>
-                                        })}
+                                    <Form.Control as="select" value={this.state.in} onChange={e => this.setState({ from:e.target.value})}>
+                                    {this.state.fromlist.map(opt => (
+                                        <option key={opt}  value={opt}>{opt}</option>
+                                    ))}
                                     </Form.Control>
                                 </InputGroup.Prepend> 
                             </InputGroup>
@@ -49,11 +48,12 @@ class Home extends React.Component{
                          <Col className="  pl-4 pr-4" md={5}>
 
                             <InputGroup className="mb-2">
-                                <Form.Control id="inlineFormInputGroup" placeholder="Amount" />
+                                <Form.Control id="i" placeholder="Amount" />
                                 <InputGroup.Prepend>
-                                    <Form.Control as="select" >
-                                        <option key="steem" value="steem">STEEM</option>
-                                        <option key="sbd" value="sbd">SBD</option>
+                                    <Form.Control as="select" value={this.state.in} onChange={e => this.setState({ to:e.target.value})}>
+                                        {this.state.tolist.map(opt => (
+                                            <option key={opt}  value={opt}>{opt}</option>
+                                        ))}
                                     </Form.Control>
                                 </InputGroup.Prepend> 
                             </InputGroup>
@@ -74,7 +74,7 @@ class Home extends React.Component{
                                             <option key="sbd" value="sbd">SBD</option>
                                         </Form.Control>
                                     </InputGroup.Prepend> 
-                                    <Form.Control id="inlineFormInputGroup" placeholder="Amount" />
+                                    <Form.Control id="e" placeholder="Amount" />
                                 </InputGroup>
                             </Form.Group> 
 
@@ -84,7 +84,7 @@ class Home extends React.Component{
                      <Row className="justify-content-md-center p-3">
                          <Col lg={6} >
                              <Form.Group>
-                                <Form.Control id="inlineFormInputGroup" placeholder="Amount" />
+                                <Form.Control id="h" placeholder="Amount" />
                             </Form.Group> 
                          </Col>
                      </Row>
