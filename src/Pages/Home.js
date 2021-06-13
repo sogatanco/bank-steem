@@ -1,6 +1,4 @@
 import React from 'react';
-import Header from './Wrapper/Header';
-import Footer from './Wrapper/Footer';
 import {Col, Container, Row, InputGroup, Button, Form} from 'react-bootstrap';
 import {FaExchangeAlt} from 'react-icons/fa';
 import './../Css/home.css';
@@ -40,7 +38,7 @@ class Home extends React.Component{
     render(){
         return(
             <>
-                 <Header/>
+                
                  
                  <Container className="ml">
                      <Row className="mt-4 ">
@@ -160,8 +158,6 @@ class Home extends React.Component{
 
                  </Container>
 
-
-                 <Footer/>
             </>
            
 

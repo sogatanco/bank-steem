@@ -11,7 +11,7 @@ class Header extends React.Component{
               <Navbar.Toggle aria-controls="responsive-navbar-nav" />
               <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="nv mr-auto">
-                  <Nav.Link href="#features" className="mx-3">Home</Nav.Link>
+                  <Nav.Link href="/" className="mx-3">Home</Nav.Link>
                   <Nav.Link href="#pricing" className="mx-3">Transaction History</Nav.Link>
                   <Nav.Link href="#pricing" className="mx-3">About</Nav.Link>
                   <Nav.Link href="#pricing" className="mx-3">Contact</Nav.Link>
@@ -20,7 +20,7 @@ class Header extends React.Component{
                   
                 </Nav>
                 <Nav className="ml-auto">
-                  <Nav.Link href="#features" className="mx-3">Login</Nav.Link>
+                  <Nav.Link href="/login" className="mx-3">Login</Nav.Link>
                   <Nav.Link href="#pricing" className="mx-3">Register</Nav.Link>
                 </Nav>
               </Navbar.Collapse>
