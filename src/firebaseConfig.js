@@ -1,6 +1,6 @@
+import firebase from 'firebase';
 
-
-var firebaseConfig = {
+const firebaseConfig = {
     apiKey: "AIzaSyDliMWKflUfbcKJtsDFdcBK7N1zwlC51Hk",
     authDomain: "bank-steem.firebaseapp.com",
     projectId: "bank-steem",
@@ -9,5 +9,5 @@ var firebaseConfig = {
     appId: "1:300425944534:web:7074f7c4911981cc9d1877"
   };
 
-
-  export default firebaseConfig;
+  firebase.initializeApp(firebaseConfig);
+  export default firebase;

@@ -1,9 +1,42 @@
 import React from 'react';
-import {Navbar, Nav, Container} from 'react-bootstrap';
+import {Navbar, Nav, Container, NavDropdown} from 'react-bootstrap';
 import '../../Css/header.css';
+import "firebase/auth";
+import firebase from '../../firebaseConfig'
+import { Redirect } from "react-router-dom";
+
+
+
 
 class Header extends React.Component{
+
+  constructor(){
+    super();
+    this.state={
+        isLogged:false,
+        phoneNumber:''
+    }
+  }
+
+  componentDidMount(){ 
+        firebase.auth().onAuthStateChanged((user) => {
+          if (user) {
+          this.setState({phoneNumber:user.phoneNumber})
+            
+          } else {
+            this.setState({phoneNumber:''})
+          }
+        });
+  }
+
+  logout(){
+    firebase.auth().signOut();
+  }
+
+  
+
     render(){
+   
         return(
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className="tt">
               <Container>
@@ -20,8 +53,19 @@ class Header extends React.Component{
                   
                 </Nav>
                 <Nav className="ml-auto">
-                  <Nav.Link href="/login" className="mx-3">Login</Nav.Link>
-                  <Nav.Link href="#pricing" className="mx-3">Register</Nav.Link>
+                
+                {this.state.phoneNumber!=''?
+                <>
+                <NavDropdown title={this.state.phoneNumber} id="collasible-nav-dropdown">
+                  <NavDropdown.Item href="#action/3.1">Setting</NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item onClick={this.logout}>Logout</NavDropdown.Item> 
+                </NavDropdown>
+                </>
+                  :
+                
+                <Nav.Link href="/login" className="mx-3">Login</Nav.Link>
+                }
                 </Nav>
               </Navbar.Collapse>
               </Container>

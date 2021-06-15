@@ -1,13 +1,15 @@
 import React from 'react';
-import firebaseConfig from '../firebaseConfig';
 import * as firebaseui from 'firebaseui';
-import firebase from 'firebase';
+import { Redirect } from "react-router-dom";
+import firebase from '../firebaseConfig';
 import 'firebaseui/dist/firebaseui.css';
+import {isLogged} from '../Pages/AuthUser';
 
 
 class Login extends React.Component{
     componentDidMount(){
-        firebase.initializeApp(firebaseConfig);
+
+
         const uiConfig={
             signInOptions:[{
                 provider:firebase.auth.PhoneAuthProvider.PROVIDER_ID,
@@ -16,15 +18,15 @@ class Login extends React.Component{
                     size:'normal',
                     badge:'bottomleft',
                 },
-                defaultCountry:'US',
+                defaultCountry:'ID',
             }],
             callbacks:{
                 signInSuccessWithAuthResult:function(authResult, redirectUrl){
-                    alert('succesfull');
+                    localStorage.setItem('uid',authResult.user.uid)
                     return true;
                 }
             },
-            signInSuccessUrl:'https://promosteem.com'
+            signInSuccessUrl:'/'
         }
 
         var ui=new firebaseui.auth.AuthUI(firebase.auth());
@@ -34,14 +36,14 @@ class Login extends React.Component{
 
 
     render(){
-        return(
-            <div className="mt-4">
-                <div id="firebase-auth-container" >
-                
+            return(
+                <div className="mt-4">
+                    <div id="firebase-auth-container" >
+                    
+                    </div>
                 </div>
-            </div>
-            
-        );
+                
+            );       
     }
 }
 
