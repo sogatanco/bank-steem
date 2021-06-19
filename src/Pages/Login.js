@@ -1,9 +1,7 @@
 import React from 'react';
 import * as firebaseui from 'firebaseui';
-import { Redirect } from "react-router-dom";
 import firebase from '../firebaseConfig';
 import 'firebaseui/dist/firebaseui.css';
-import {isLogged} from '../Pages/AuthUser';
 
 
 class Login extends React.Component{

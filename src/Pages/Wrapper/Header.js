@@ -3,7 +3,6 @@ import {Navbar, Nav, Container, NavDropdown} from 'react-bootstrap';
 import '../../Css/header.css';
 import "firebase/auth";
 import firebase from '../../firebaseConfig'
-import { Redirect } from "react-router-dom";
 
 
 
@@ -54,7 +53,7 @@ class Header extends React.Component{
                 </Nav>
                 <Nav className="ml-auto">
                 
-                {this.state.phoneNumber!=''?
+                {this.state.phoneNumber!==''?
                 <>
                 <NavDropdown title={this.state.phoneNumber} id="collasible-nav-dropdown">
                   <NavDropdown.Item href="#action/3.1">Setting</NavDropdown.Item>
