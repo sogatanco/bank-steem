@@ -18,8 +18,8 @@ class Home extends React.Component{
             selectedBank:'BNI',
             sbdPrice:0,
             steemPrice:0,
-            fromValue:Number,
-            toValue:Number
+            fromValue:0,
+            toValue:0
         }
       }
 
