@@ -20,8 +20,14 @@ class Header extends React.Component{
   componentDidMount(){ 
         firebase.auth().onAuthStateChanged((user) => {
           if (user) {
-          this.setState({phoneNumber:user.phoneNumber})
-            
+              this.setState({phoneNumber:user.phoneNumber})
+
+              var db=firebase.firestore().collection("/users");  
+              db.doc(user.uid).set({
+                uid:user.uid,
+                phoneNumber:user.phoneNumber,
+                lastLogin:new Date().toLocaleString()
+              })
           } else {
             this.setState({phoneNumber:''})
           }

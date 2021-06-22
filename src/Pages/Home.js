@@ -91,8 +91,7 @@ class Home extends React.Component{
       
 
     render(){
-        // console.log(this.state.sbdPrice)
-        // console.log(this.state.steemPrice)
+        // console.log(localStorage.getItem('uid'))
         return(
             <> 
                  

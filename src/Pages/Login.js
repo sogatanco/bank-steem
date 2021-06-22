@@ -6,7 +6,7 @@ import 'firebaseui/dist/firebaseui.css';
 
 class Login extends React.Component{
     componentDidMount(){
-
+        // var db=firebase.firestore().collection("/users");
 
         const uiConfig={
             signInOptions:[{
@@ -20,7 +20,6 @@ class Login extends React.Component{
             }],
             callbacks:{
                 signInSuccessWithAuthResult:function(authResult, redirectUrl){
-                    localStorage.setItem('uid',authResult.user.uid)
                     return true;
                 }
             },
@@ -30,6 +29,7 @@ class Login extends React.Component{
         var ui=new firebaseui.auth.AuthUI(firebase.auth());
         ui.start('#firebase-auth-container', uiConfig);
     }
+
 
 
 
