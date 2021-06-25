@@ -28,6 +28,7 @@ class Header extends React.Component{
                 phoneNumber:user.phoneNumber,
                 lastLogin:new Date().toLocaleString()
               })
+
           } else {
             this.setState({phoneNumber:''})
           }
