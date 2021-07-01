@@ -100,16 +100,16 @@ class Home extends React.Component{
         var hasil;
         if(this.state.from==='IDR'&& this.state.to==='STEEM'){
             hasil=this.state.fromValue/this.state.steemPrice;
-            hasil=hasil-(hasil*0.02)
+            hasil=hasil-(hasil*0.03)
         }else if(this.state.from==='IDR'&& this.state.to==='SBD'){
             hasil=this.state.fromValue/this.state.sbdPrice;
-            hasil=hasil-(hasil*0.02)
+            hasil=hasil-(hasil*0.03)
         }else if(this.state.from==='STEEM'&& this.state.to==='IDR'){
             hasil=this.state.fromValue*this.state.steemPrice;
-            hasil=hasil-(hasil*0.02)
+            hasil=hasil-(hasil*0.03)
         }else if(this.state.from==='SBD'&& this.state.to==='IDR'){
             hasil=this.state.fromValue*this.state.sbdPrice;
-            hasil=hasil-(hasil*0.02)
+            hasil=hasil-(hasil*0.03)
         }
 
         this.setState({toValue:hasil})
@@ -119,10 +119,11 @@ class Home extends React.Component{
 
         firebase.auth().onAuthStateChanged((user)=>{
             if(user){
+                var db=firebase.firestore().collection("/transactions");
                 
               if(this.state.from==='IDR' ){
                   if(this.state.fromValue!==0 && this.state.toValue!==0 && this.state.username!=='' && this.state.memo!==''){
-                    var db=firebase.firestore().collection("/transactions");
+                  
                     db.add({
                         uid:user.uid,
                         time:new Date().toLocaleString(),
@@ -130,7 +131,8 @@ class Home extends React.Component{
                         value:this.state.fromValue,
                         result:this.state.toValue,
                         username:this.state.username,
-                        memo:this.state.memo
+                        memo:this.state.memo,
+                        status:'pending'
                     }).then(()=>{
                         this.setState({show:true})
                     })
@@ -141,7 +143,20 @@ class Home extends React.Component{
                   }
               }else{
                 if(this.state.fromValue!==0 && this.state.toValue!==0 && this.state.bankNumber!=='' && this.state.bankName!==''){
-                    this.setState({show1:true, memo:this.state.from+"-"+user.uid})
+                    db.add({
+                        uid:user.uid,
+                        time:new Date().toLocaleString(),
+                        kind:this.state.from+"-"+this.state.to,
+                        value:this.state.fromValue,
+                        result:this.state.toValue,
+                        bankName:this.state.bankName,
+                        bankNumber:this.state.bankNumber,
+                        bank:this.state.selectedBank,
+                        status:'pending'
+                    }).then(()=>{
+                        this.setState({show1:true, memo:this.state.from+"-"+user.uid})
+                    })  
+
                 }else{
                     alert('Please fill empty field !!')
                 }
@@ -156,6 +171,7 @@ class Home extends React.Component{
       handleClose(){
           this.setState({show:false})
           this.setState({show1:false})
+          this.props.history.push('/history')
       }
 
       
