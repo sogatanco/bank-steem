@@ -42,8 +42,6 @@ class History extends React.Component{
     }
 
     render(){
-        console.log(this.state.tr)
-         
         if(this.state.redi){
             return(<Redirect to="/login"></Redirect>)
         }else{
@@ -70,6 +68,7 @@ class History extends React.Component{
                                      {t.kind==='IDR-STEEM'? <p>convert {t.value} IDR to {t.result} STEEM, The result will be send to @{t.username} with memo : {t.memo}</p>:null}
                                      {t.kind==='IDR-SBD'? <p>convert {t.value} IDR to {t.result} SBD, The result will be send to @{t.username} with memo : {t.memo}</p>:null}
                                      {t.kind==='SBD-IDR'? <p>convert {t.value} SBD to {t.result} IDR, The result will be send to {t.bank} {t.bankNumber} with name {t.bankName}</p>:null}
+                                     {t.kind==='STEEM-IDR'? <p>convert {t.value} STEEM to {t.result} IDR, The result will be send to {t.bank} {t.bankNumber} with name {t.bankName}</p>:null}
                                      
                                  </li>
                                  ))}

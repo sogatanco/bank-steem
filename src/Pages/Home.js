@@ -100,16 +100,16 @@ class Home extends React.Component{
         var hasil;
         if(this.state.from==='IDR'&& this.state.to==='STEEM'){
             hasil=this.state.fromValue/this.state.steemPrice;
-            hasil=hasil-(hasil*0.03)
+            hasil=hasil-(hasil*0.07)
         }else if(this.state.from==='IDR'&& this.state.to==='SBD'){
             hasil=this.state.fromValue/this.state.sbdPrice;
-            hasil=hasil-(hasil*0.03)
+            hasil=hasil-(hasil*0.07)
         }else if(this.state.from==='STEEM'&& this.state.to==='IDR'){
             hasil=this.state.fromValue*this.state.steemPrice;
-            hasil=hasil-(hasil*0.03)
+            hasil=hasil-(hasil*0.07)
         }else if(this.state.from==='SBD'&& this.state.to==='IDR'){
             hasil=this.state.fromValue*this.state.sbdPrice;
-            hasil=hasil-(hasil*0.03)
+            hasil=hasil-(hasil*0.07)
         }
 
         this.setState({toValue:hasil})
@@ -119,11 +119,11 @@ class Home extends React.Component{
 
         firebase.auth().onAuthStateChanged((user)=>{
             if(user){
-                var db=firebase.firestore().collection("/transactions");
+                var db;
                 
               if(this.state.from==='IDR' ){
                   if(this.state.fromValue!==0 && this.state.toValue!==0 && this.state.username!=='' && this.state.memo!==''){
-                  
+                    db=firebase.firestore().collection("/transactions");
                     db.add({
                         uid:user.uid,
                         time:new Date().toLocaleString(),
@@ -143,6 +143,7 @@ class Home extends React.Component{
                   }
               }else{
                 if(this.state.fromValue!==0 && this.state.toValue!==0 && this.state.bankNumber!=='' && this.state.bankName!==''){
+                    db=firebase.firestore().collection("/transactions");
                     db.add({
                         uid:user.uid,
                         time:new Date().toLocaleString(),

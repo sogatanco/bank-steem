@@ -1,0 +1,7 @@
+{
+    "name": "banksteem",
+    "integrations": {
+      "capacitor": {}
+    },
+    "type": "react"
+  }

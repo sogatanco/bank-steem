@@ -1,0 +1,8 @@
+{
+	"appId": "io.ionic.banksteem",
+	"appName": "banksteem",
+	"bundledWebRuntime": false,
+	"npmClient": "npm",
+	"webDir": "build",
+	"cordova": {}
+}
