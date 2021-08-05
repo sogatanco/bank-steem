@@ -52,7 +52,7 @@ class Header extends React.Component{
                 <Nav className="nv mr-auto">
                   <Nav.Link href="/" className="mx-3">Home</Nav.Link>
                   <Nav.Link href="/history" className="mx-3">Transaction History</Nav.Link>
-                  <Nav.Link href="#pricing" className="mx-3">About</Nav.Link>
+                  <Nav.Link href="/about" className="mx-3">About</Nav.Link>
                   <Nav.Link href="#pricing" className="mx-3">Contact</Nav.Link>
                 </Nav>
                 <Nav className="mx-auto">
