@@ -26,11 +26,6 @@ class About extends React.Component{
                             <h4>Our Sponsors</h4>
                             <ListGroup variant="flush">
                             <ListGroup.Item>Promosteem Teams</ListGroup.Item>
-                            <ListGroup.Item>Indonesia Country Reps</ListGroup.Item>
-                            <ListGroup.Item>@steemcurator01</ListGroup.Item>
-                            <ListGroup.Item>@booming</ListGroup.Item>
-                            <ListGroup.Item>@stephenkendal</ListGroup.Item>
-                            <ListGroup.Item>@pennsif</ListGroup.Item>
                             </ListGroup>
 
                             <br></br>
